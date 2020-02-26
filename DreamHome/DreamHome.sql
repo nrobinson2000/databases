@@ -52,7 +52,7 @@ CREATE TABLE PropertyForRent
     street VARCHAR(30),
     city VARCHAR(30),
     postcode VARCHAR(30),
-    type VARCHAR(30),
+    propertytype VARCHAR(30),
     rooms INT,
     rent INT,
     ownerNo VARCHAR(5) NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE Viewing
     clientNo VARCHAR(5) NOT NULL,
     propertyNo VARCHAR(5) NOT NULL,
     viewDate DATE,
-    comment VARCHAR(30),
+    comments VARCHAR(30),
 
     CONSTRAINT VIEWING_PK PRIMARY KEY (clientNo, propertyNo),
     CONSTRAINT VIEWING_FK1 FOREIGN KEY (clientNo) REFERENCES Client(clientNo),
