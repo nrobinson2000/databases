@@ -1,0 +1,52 @@
+-- Inserting records into Branch Table
+
+INSERT INTO branch_t VALUES
+("B005","22 Deer Rd","London","SW1 4EH");
+INSERT INTO branch_t VALUES
+("B007","22 Argyl St","Aberdeen","AB2 35U");
+INSERT INTO branch_t VALUES
+("B003","163 Main St","Glasgow","G11 9QX");
+INSERT INTO branch_t VALUES
+("B004","32 Manse Rd","Bristol","BS99 1NZ");
+INSERT INTO branch_t VALUES
+("B002","56 Clover Dr","London","NW10 6EU");
+
+-- Inserting records into Staff Table
+
+INSERT INTO staff_t VALUES("SL21","John","White","Manager",'M',"10-01-1945",30000,"B005");
+INSERT INTO staff_t VALUES("SG37","Ann","Beech","Assistant",'F',"11-11-1960",12000,"B005");
+INSERT INTO staff_t VALUES("SG14","David","Ford","Supervisor",'M',"03-24-1958",30000,"B005");
+
+-- Inserting records into Property For Rent Table
+
+INSERT INTO property_t VALUES("PA14","16 Holhead","Aberdeen","AB7 5SU","House",6,650,"CO46","SA9","B007");
+INSERT INTO property_t VALUES("PL94","6 Argyl St","London","NW2","Flat",4,400,"CO87","SL41","B005");
+INSERT INTO property_t VALUES("PA4","6 Lawrence St","Glasgow","G11 9QX","Flat",3,350,"CO40",null,"B003");
+
+-- Inserting records into Client
+
+INSERT INTO private_owner_t VALUES("CO46","Joe","Keogh",
+"2 Fergus Dr, Aberdeen AB2 7SX","01224-861212");
+INSERT INTO private_owner_t VALUES("CO87","Carol","Farrel",
+"6 Achray St, Glasgow G32 9DX","0141-357-7419");
+INSERT INTO private_owner_t VALUES("CO40","Tina","Murphy",
+"63 Well St, Glasgow G42","0141-973-1728");
+
+-- Inserting into Viewing Table
+
+INSERT INTO Viewing_t VALUES("CR56","PA14","05-24-2004","too small");
+INSERT INTO Viewing_t VALUES("CR76","PG4","04-20-2004","too remote");
+INSERT INTO Viewing_t VALUES("CR56","PG4","05-26-2004","");
+
+--Inserting into Registration Table
+
+INSERT INTO Registration_t VALUES("CR76","B005",
+"SL41","01-02-2004");
+INSERT INTO Registration_t VALUES("CR56","B003",
+"SG37","04-11-2003");
+INSERT INTO Registration_t VALUES("CR74","B003",
+"SG37","11-16-2002");
+
+
+
+
