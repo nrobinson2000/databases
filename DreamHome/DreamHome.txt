@@ -1,0 +1,71 @@
+-- Drop tables
+
+DROP TABLE IF EXISTS BRANCH_t;
+DROP TABLE IF EXISTS STAFF_t;
+DROP TABLE IF EXISTS PROPERTY_FOR_RENT_t;
+DROP TABLE IF EXISTS CLIENT_t;
+DROP TABLE IF EXISTS PRIVATE_OWNER_t;
+DROP TABLE IF EXISTS VIEWING_t;
+DROP TABLE IF EXISTS REGISTRATION_t;
+
+-- Create tables
+
+CREATE TABLE BRANCH_t
+(
+    Branch_Number VARCHAR(5) NOT NULL,
+    Branch_Street VARCHAR(30),
+    Branch_City VARCHAR(30),
+    Branch_Postcode VARCHAR(30),
+
+    CONSTRAINT BRANCH_PK PRIMARY KEY (Branch_Number)
+);
+
+CREATE TABLE STAFF_t
+(
+    Staff_Number VARCHAR(5) NOT NULL,
+    Staff_FName VARCHAR(30),
+    Staff_LName VARCHAR(30),
+    Staff_Position VARCHAR(30),
+    Staff_Sex CHAR,
+    Staff_DOB DATE,
+    Staff_Salary INT,
+    Branch_Number VARCHAR(5) NOT NULL,
+
+    CONSTRAINT STAFF_PK PRIMARY KEY (Staff_Number),
+    CONSTRAINT STAFF_FK1 FOREIGN KEY (Branch_Number) REFERENCES BRANCH_t(Branch_Number)
+);
+
+CREATE TABLE PROPERTY_FOR_RENT_t
+(
+    Property_Number VARCHAR(5) NOT NULL,
+    Property_Street VARCHAR(30),
+    Property_City VARCHAR(30),
+    Property_Postcode VARCHAR(30),
+
+
+
+
+
+);
+
+CREATE TABLE CLIENT_t
+(
+
+);
+
+CREATE TABLE PRIVATE_OWNER_t
+(
+
+);
+
+CREATE TABLE VIEWING_t
+(
+
+);
+
+CREATE TABLE REGISTRATION_t
+(
+
+);
+
+-- Do insertions
