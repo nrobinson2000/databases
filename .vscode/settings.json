@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "accelerate",
+            "dialect": "MariaDB",
+            "name": "connection",
+            "password": "1234",
+            "port": 3306,
+            "server": "localhost",
+            "username": "vscode"
+        }
+    ]
+}
