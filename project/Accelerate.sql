@@ -3,7 +3,7 @@
 -- CREATE DATABSE Project
 -- USE Project
 -- DROP TABLES
-DROP TABLE IF EXISTS 3DPrinter;
+DROP TABLE IF EXISTS ThreeDPrinter;
 DROP TABLE IF EXISTS Filament;
 DROP TABLE IF EXISTS Material;
 DROP TABLE IF EXISTS Tool;
@@ -20,42 +20,42 @@ DROP TABLE IF EXISTS Club;
 DROP TABLE IF EXISTS Student;
 -- CREATE TABLES
 CREATE TABLE Student (
-  WID VARCHAR(30) NOT NULL,
-  Name VARCHAR(30),
-  Major VARCHAR(30),
+  WID VARCHAR(100) NOT NULL,
+  Name VARCHAR(100),
+  Major VARCHAR(100),
   GradYear YEAR,
   CONSTRAINT Student_PK PRIMARY KEY (WID)
 );
 CREATE TABLE Club (
-  ClubName VARCHAR(30) NOT NULL,
+  ClubName VARCHAR(100) NOT NULL,
   ClubSize INT,
-  ClubType VARCHAR(30),
+  ClubType VARCHAR(100),
   CONSTRAINT Club_PK PRIMARY KEY (ClubName)
 );
 CREATE TABLE Member_List (
-  ClubName VARCHAR(30) NOT NULL,
-  WID VARCHAR(30) NOT NULL,
+  ClubName VARCHAR(100) NOT NULL,
+  WID VARCHAR(100) NOT NULL,
   CONSTRAINT Member_PK PRIMARY KEY (ClubName, WID),
   CONSTRAINT Member_FK1 FOREIGN KEY (ClubName) REFERENCES Club(ClubName),
   CONSTRAINT Member_FK2 FOREIGN KEY (WID) REFERENCES Student(WID)
 );
 CREATE TABLE Mentor (
-  MentorName VARCHAR(30) NOT NULL,
-  Title VARCHAR(30),
-  Organization VARCHAR(30),
+  MentorName VARCHAR(100) NOT NULL,
+  Title VARCHAR(100),
+  Organization VARCHAR(100),
   CONSTRAINT Mentor_PK PRIMARY KEY (MentorName)
 );
 CREATE TABLE Project (
-  ProjectName VARCHAR(30) NOT NULL,
+  ProjectName VARCHAR(100) NOT NULL,
   Educational BOOLEAN,
   TeamSize INT,
   CONSTRAINT Project_PK PRIMARY KEY (ProjectName)
 );
 CREATE TABLE Project_Assignment (
-  AssignmentNo INT NOT NULL,
-  ProjectName VARCHAR(30) NOT NULL,
-  MentorName VARCHAR(30) NOT NULL,
-  WID VARCHAR(30) NOT NULL,
+  AssignmentNo VARCHAR(100) NOT NULL,
+  ProjectName VARCHAR(100) NOT NULL,
+  MentorName VARCHAR(100) NOT NULL,
+  WID VARCHAR(100) NOT NULL,
   StartDate DATE,
   EndDate DATE,
   CONSTRAINT Assignment_PK PRIMARY KEY (AssignmentNo),
@@ -64,67 +64,69 @@ CREATE TABLE Project_Assignment (
   CONSTRAINT Assignment_FK3 FOREIGN KEY (WID) REFERENCES Student(WID)
 );
 CREATE TABLE Staff (
-  StaffID VARCHAR(30) NOT NULL,
-  WID VARCHAR(30) NOT NULL,
-  PositionTitle VARCHAR(30),
+  StaffID VARCHAR(100) NOT NULL,
+  WID VARCHAR(100) NOT NULL,
+  PositionTitle VARCHAR(100),
   HoursWorked INT,
   CONSTRAINT Staff_PK PRIMARY KEY (StaffID),
   CONSTRAINT Staff_FK FOREIGN KEY (WID) REFERENCES Student(WID)
 );
 CREATE TABLE Events (
-  EventID VARCHAR(30) NOT NULL,
-  Name VARCHAR(30),
+  EventID VARCHAR(100) NOT NULL,
+  Name VARCHAR(100),
   Date DATE,
   Time TIME,
   CONSTRAINT Event_PK PRIMARY KEY (EventID)
 );
 CREATE TABLE Staff_List (
-  EventID VARCHAR(30) NOT NULL,
-  StaffID VARCHAR(30) NOT NULL,
+  EventID VARCHAR(100) NOT NULL,
+  StaffID VARCHAR(100) NOT NULL,
   CONSTRAINT Staff_List_PK PRIMARY KEY (EventID, StaffID),
   CONSTRAINT Staff_List_FK1 FOREIGN KEY (EventID) REFERENCES Events(EventID),
   CONSTRAINT Staff_List_FK2 FOREIGN KEY (StaffID) REFERENCES Staff(StaffID)
 );
 CREATE TABLE Equipment (
-  LocationTagID VARCHAR(30) NOT NULL,
+  LocationTagID VARCHAR(100) NOT NULL,
   EquipmentType CHAR(1) NOT NULL,
+  EquipmentName VARCHAR(100) NOT NULL,
   CONSTRAINT Equipment_PK PRIMARY KEY (LocationTagID)
 );
 CREATE TABLE Checkout (
-  CheckoutNo INT NOT NULL,
-  LocationTagID VARCHAR(30) NOT NULL,
-  WID VARCHAR(30) NOT NULL,
+  CheckoutNo VARCHAR(100) NOT NULL,
+  LocationTagID VARCHAR(100) NOT NULL,
+  WID VARCHAR(100) NOT NULL,
   DateChecked DATE,
   CONSTRAINT Checkout_PK PRIMARY KEY (CheckoutNo),
   CONSTRAINT Checkout_FK1 FOREIGN KEY (LocationTagID) REFERENCES Equipment(LocationTagID),
   CONSTRAINT Checkout_FK2 FOREIGN KEY (WID) REFERENCES Student(WID)
 );
 CREATE TABLE Tool (
-  ToolID VARCHAR(30) NOT NULL,
-  TrainingRequired VARCHAR(3) NOT NULL,
-  ToolDescription VARCHAR(50),
+  ToolID VARCHAR(100) NOT NULL,
+  ToolType CHAR(1) NOT NULL,
+  TrainingRequired BOOLEAN NOT NULL,
+  ToolDescription VARCHAR(100),
   CONSTRAINT Tool_PK PRIMARY KEY (ToolID),
   CONSTRAINT Tool_FK1 FOREIGN KEY (ToolID) REFERENCES Equipment(LocationTagID)
 );
 CREATE TABLE Material (
-  MaterialID VARCHAR(30) NOT NULL,
-  MaterialDescription VARCHAR(60),
+  MaterialID VARCHAR(100) NOT NULL,
+  MaterialDescription VARCHAR(100),
   CONSTRAINT Material_PK PRIMARY KEY (MaterialID),
   CONSTRAINT MATERIAL_FK1 FOREIGN KEY (MaterialID) REFERENCES Equipment(LocationTagID)
 );
 CREATE TABLE Filament(
-  FilamentID VARCHAR(30) NOT NULL,
-  FilamentBrand VARCHAR(30),
-  FilamentColor VARCHAR(30),
-  FilamentDescription VARCHAR(60),
+  FilamentID VARCHAR(100) NOT NULL,
+  FilamentBrand VARCHAR(100),
+  FilamentColor VARCHAR(100),
+  FilamentDescription VARCHAR(100),
   CONSTRAINT Filament_PK PRIMARY KEY (FilamentID),
   CONSTRAINT Filament_FK1 FOREIGN KEY (FilamentID) REFERENCES Equipment(LocationTagID)
 );
-CREATE TABLE 3DPrinter(
-  PrinterID VARCHAR(30) NOT NULL,
-  FilamentID VARCHAR(30) NOT NULL,
-  PrinterBrand VARCHAR(30),
-  PrinterDescripion VARCHAR(30),
+CREATE TABLE ThreeDPrinter(
+  PrinterID VARCHAR(100) NOT NULL,
+  FilamentID VARCHAR(100) NOT NULL,
+  PrinterBrand VARCHAR(100),
+  PrinterDescripion VARCHAR(100),
   CONSTRAINT Printer_PK PRIMARY KEY (PrinterID),
   CONSTRAINT PRINTER_FK1 FOREIGN KEY (PrinterID) REFERENCES Equipment(LocationTagID),
   CONSTRAINT PRINTER_FK2 FOREIGN KEY (FilamentID) REFERENCES Filament(FilamentID)
