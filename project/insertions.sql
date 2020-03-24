@@ -94,11 +94,11 @@ VALUES
 
 INSERT INTO Equipment
 VALUES
-    ("LT000", "General/Office"),
-    ("LT001", "Tool"),
-    ("LT002", "Material"),
-    ("LT003", "Filament"),
-    ("LT004", "3DPrinter");
+    ("LT000", "G", "General/Office"),
+    ("LT001", "T", "Tool"),
+    ("LT002", "M", "Material"),
+    ("LT003", "F", "Filament"),
+    ("LT004", "3", "3DPrinter");
 
 INSERT INTO Checkout
 VALUES
@@ -108,11 +108,11 @@ VALUES
 
 INSERT INTO Tool
 VALUES
-    ("T001", FALSE, "Hammer"),
-    ("T002", FALSE, "Large paper cutter"),
-    ("T003", FALSE, "Hot glue gun"),
-    ("T004", TRUE, "laser Cutter"),
-    ("T005", TRUE, "Belt Sander");
+    ("T001", "T", FALSE, "Hammer"),
+    ("T002", "T", FALSE, "Large paper cutter"),
+    ("T003", "T", FALSE, "Hot glue gun"),
+    ("T004", "T", TRUE, "laser Cutter"),
+    ("T005", "T", TRUE, "Belt Sander");
 
 INSERT INTO Material
 VALUES
@@ -130,7 +130,7 @@ VALUES
     ("F03", "MakerBot", "blue", "blue PLA filament for 3D printing"),
     ("F04", "MakerBot", "purple", "purple PLA filament for 3D printing");
 
-INSERT INTO 3DPrinter
+INSERT INTO ThreeDPrinter
 VALUES
     ("P01", "F01", "MakerBot", "3D Printer using filament"),
     ("P02", "F04", "MakerBot", "3D Printer using filament"),
