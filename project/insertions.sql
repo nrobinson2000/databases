@@ -21,7 +21,7 @@ INSERT INTO Club
 VALUES
     ("Costume Club", "10", "Recreational"),
     ("Robotics Club", "6", "Academic"),
-    ("VR Club", "5", "Recreational"),
+    ("VR Club", "5", "Recreational");
 
 INSERT INTO Member_List
 VALUES
@@ -65,7 +65,7 @@ INSERT INTO Project_Assignment
 VALUES
     ("A01", "Magic Mirror", "Tory Lam", "W00392828", "2020-01-08", "2020-04-13"),
     ("A02", "Project: Take Over", "Tory Lam", "W00123456", "2018-10-10", "2025-12-07"),
-    ("A03", "Cellular Automation", "Micah Schuster", "W00387654", "2020-01-08", "2020-04-13"),
+    ("A03", "Cellular Automation", "Micah Schuster", "W00387654", "2020-01-08", "2020-04-13");
 
 INSERT INTO Staff
 VALUES
