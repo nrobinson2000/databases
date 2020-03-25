@@ -3,7 +3,7 @@
 -- CREATE DATABSE Project
 -- USE Project
 -- DROP TABLES
-DROP TABLE IF EXISTS ThreeDPrinter;
+DROP TABLE IF EXISTS 3DPrinter;
 DROP TABLE IF EXISTS Filament;
 DROP TABLE IF EXISTS Material;
 DROP TABLE IF EXISTS Tool;
@@ -105,29 +105,32 @@ CREATE TABLE Tool (
   ToolType CHAR(1) NOT NULL,
   TrainingRequired BOOLEAN NOT NULL,
   ToolDescription VARCHAR(100),
-  CONSTRAINT Tool_PK PRIMARY KEY (ToolID),
+  CONSTRAINT Tool_PK PRIMARY KEY (ToolType, ToolID),
   CONSTRAINT Tool_FK1 FOREIGN KEY (ToolID) REFERENCES Equipment(LocationTagID)
 );
 CREATE TABLE Material (
   MaterialID VARCHAR(100) NOT NULL,
+  MaterialType VARCHAR(1) NOT NULL,
   MaterialDescription VARCHAR(100),
-  CONSTRAINT Material_PK PRIMARY KEY (MaterialID),
+  CONSTRAINT Material_PK PRIMARY KEY (MaterialType, MaterialID),
   CONSTRAINT MATERIAL_FK1 FOREIGN KEY (MaterialID) REFERENCES Equipment(LocationTagID)
 );
 CREATE TABLE Filament(
   FilamentID VARCHAR(100) NOT NULL,
+  FilamentType VARCHAR(1) NOT NULL,
   FilamentBrand VARCHAR(100),
   FilamentColor VARCHAR(100),
   FilamentDescription VARCHAR(100),
-  CONSTRAINT Filament_PK PRIMARY KEY (FilamentID),
+  CONSTRAINT Filament_PK PRIMARY KEY (FilamentType, FilamentID),
   CONSTRAINT Filament_FK1 FOREIGN KEY (FilamentID) REFERENCES Equipment(LocationTagID)
 );
-CREATE TABLE ThreeDPrinter(
+CREATE TABLE 3DPrinter(
   PrinterID VARCHAR(100) NOT NULL,
+  PrinterType VARCHAR(1) NOT NULL,
   FilamentID VARCHAR(100) NOT NULL,
   PrinterBrand VARCHAR(100),
   PrinterDescripion VARCHAR(100),
-  CONSTRAINT Printer_PK PRIMARY KEY (PrinterID),
+  CONSTRAINT Printer_PK PRIMARY KEY (PrinterType, PrinterID),
   CONSTRAINT PRINTER_FK1 FOREIGN KEY (PrinterID) REFERENCES Equipment(LocationTagID),
   CONSTRAINT PRINTER_FK2 FOREIGN KEY (FilamentID) REFERENCES Filament(FilamentID)
 );
