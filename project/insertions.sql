@@ -292,33 +292,33 @@ VALUES
     "purple",
     "purple PLA filament for 3D printing"
   );
-INSERT INTO 3DPrinter
+INSERT INTO ThreeDPrinter
 VALUES
   (
     "0017",
     "3",
-    "F0012",
+    "0012",
     "MakerBot",
     "3D Printer using filament"
   ),
   (
     "0018",
     "3",
-    "F0013",
+    "0013",
     "MakerBot",
     "3D Printer using filament"
   ),
   (
     "0019",
     "3",
-    "F0015",
+    "0015",
     "Prusa",
     "3D Printer using resin"
   ),
   (
     "0020",
     "3",
-    "F0016",
+    "0016",
     "Prusa",
     "3D Printer using resin"
   );
