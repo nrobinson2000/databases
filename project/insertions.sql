@@ -298,7 +298,6 @@ VALUES
     "0017",
     "3",
     "0012",
-    "F",
     "MakerBot",
     "3D Printer using filament"
   ),
@@ -306,7 +305,6 @@ VALUES
     "0018",
     "3",
     "0013",
-    "F",
     "MakerBot",
     "3D Printer using filament"
   ),
@@ -314,7 +312,6 @@ VALUES
     "0019",
     "3",
     "0015",
-    "F",
     "Prusa",
     "3D Printer using resin"
   ),
@@ -322,7 +319,6 @@ VALUES
     "0020",
     "3",
     "0016",
-    "F",
     "Prusa",
     "3D Printer using resin"
   );

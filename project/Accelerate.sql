@@ -128,10 +128,9 @@ CREATE TABLE ThreeDPrinter(
   PrinterID VARCHAR(100) NOT NULL,
   PrinterType VARCHAR(1) NOT NULL,
   FilamentID VARCHAR(100) NOT NULL,
-  FilamentType VARCHAR(1) NOT NULL,
   PrinterBrand VARCHAR(100),
   PrinterDescripion VARCHAR(100),
   CONSTRAINT Printer_PK PRIMARY KEY (PrinterType, PrinterID),
   CONSTRAINT PRINTER_FK1 FOREIGN KEY (PrinterID) REFERENCES Equipment(LocationTagID),
-  CONSTRAINT PRINTER_FK2 FOREIGN KEY (FilamentID, FilamentType) REFERENCES Filament(FilamentID, FilamentType)
+  CONSTRAINT PRINTER_FK2 FOREIGN KEY (FilamentID) REFERENCES Filament(FilamentID)
 );
